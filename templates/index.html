@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salary Predictor</title>
+    <style>
+        body { font-family: Arial; padding: 30px; background: #f4f4f4; }
+        form { background: white; padding: 20px; border-radius: 10px; width: 300px; margin: auto; }
+        input, select { width: 100%; padding: 8px; margin-top: 10px; margin-bottom: 20px; }
+        .btn { background: teal; color: white; padding: 10px; border: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center;">Salary Predictor</h2>
+    <form method="POST">
+        <label>Age</label>
+        <input type="number" name="age" required>
+
+        <label>Gender</label>
+        <select name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label>Education Level</label>
+        <select name="education" required>
+            <option value="High School">High School</option>
+            <option value="Bachelor's">Bachelor's</option>
+            <option value="Master's">Master's</option>
+            <option value="PhD">PhD</option>
+        </select>
+
+        <label>Job Title</label>
+        <select name="job" required>
+            {% for title in job_titles %}
+                <option value="{{ title }}">{{ title }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Years of Experience</label>
+        <input type="number" step="0.1" name="experience" required>
+
+        <button class="btn" type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h3 style="text-align:center;">Predicted Salary: {{ prediction }}</h3>
+    {% endif %}
+
+</body>
+</html>
