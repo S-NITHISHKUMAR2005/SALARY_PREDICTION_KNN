@@ -7,11 +7,11 @@ import os
 app = Flask(__name__)
 
 # Load models
-model = joblib.load("Models/SP_model.pkl")
-scaler = joblib.load("Models/SP_scaler.pkl")
-columns = joblib.load("Models/SP_columns.pkl")
-edu_encoder = joblib.load("Models/SP_edu_encoder.pkl")
-job_titles = joblib.load("Models/SP_job_titles.pkl")
+model = joblib.load("MODELS/SP_model.pkl")
+scaler = joblib.load("MODELS/SP_scaler.pkl")
+columns = joblib.load("MODELS/SP_columns.pkl")
+edu_encoder = joblib.load("MODELS/SP_edu_encoder.pkl")
+job_titles = joblib.load("MODELS/SP_job_titles.pkl")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
